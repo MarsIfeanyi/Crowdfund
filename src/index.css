@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .headerStyle {
+    @apply text-lg text-blue-700 font-medium;
+  }
+}
