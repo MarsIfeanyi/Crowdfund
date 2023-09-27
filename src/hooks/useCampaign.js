@@ -19,8 +19,8 @@ const useCampaign = () => {
       try {
         const campaignIds = await crowdFundContract.id();
         const allCreatedCampaigns = [];
-        for (let i = 1; i < campaignIds.length; i++) {
-          const campaign = crowdFundContract.crowd(i);
+        for (let index = 1; index <= campaignIds; index++) {
+          const campaign = crowdFundContract.crowd(index);
           allCreatedCampaigns.push(campaign);
         }
 

@@ -30,7 +30,7 @@ const CreateCampaign = () => {
       provider
     );
 
-    const txReceipt = crowdfundContract.proposeCampaign(title, goal, duration);
+    await crowdfundContract.proposeCampaign(title, goal, duration);
   };
 
   return (
@@ -97,7 +97,7 @@ const CreateCampaign = () => {
                       <input
                         value={goal}
                         onChange={(e) => setGoal(e.target.value)}
-                        type="text"
+                        type="number"
                         className="outline-0 py-2 px-1 rounded-lg mt-2 border border-blue-400"
                       />
                     </div>
@@ -111,7 +111,7 @@ const CreateCampaign = () => {
                       />
                     </div>
                     <div className="cursor-pointer w-full rounded-md bg-blue-400 p-3 text-sm font-medium text-white hover:bg-opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 text-center">
-                      <button>Create Campaign</button>
+                      <button type="submit">Create Campaign</button>
                     </div>
                   </form>
                 </Dialog.Panel>

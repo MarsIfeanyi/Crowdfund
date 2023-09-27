@@ -1,6 +1,7 @@
 import React from "react";
 import useCampaign from "../hooks/useCampaign";
 import { ethers } from "ethers";
+import { shortenAccount } from "../utils";
 
 const IdToCrowdFund = () => {
   const allCampaigns = useCampaign();
@@ -9,42 +10,29 @@ const IdToCrowdFund = () => {
       <h2 className="text-center  text-3xl text-blue-600 mt-14 font-medium shadow-lg  ">
         Active and Ongoing Campaigns
       </h2>
-      <div className="campaign-list text-sm lg:grid grid-cols-2 gap-4  m-8 font-medium">
+      <div className="grid grid-cols-3 mx-14 mt-4">
         {allCampaigns.map((campaign, index) => (
-          <div
-            key={index}
-            className="bg-blue-400/80 p-4 rounded-xl flex mb-2 flex-col gap-2"
-          >
-            <div>
-              <span className="bg-white/70 p-1 rounded-md mr-2">Title:</span>{" "}
-              {campaign.title}
+          <div key={index}>
+            <div className="flex flex-row">
+              <h4>Title:</h4> {campaign.title}
             </div>
-            <div>
-              <span className="bg-white/70 p-1 rounded-md mr-2">
-                Funding Goal:
-              </span>{" "}
-              {ethers.formatEther(campaign.fundingGoal)}
+            <div className="flex flex-row">
+              <h4>Funding Goal:</h4> {ethers.formatEther(campaign.fundingGoal)}
             </div>
-            <div>
-              <span className="bg-white/70 p-1 rounded-md mr-2">Owner:</span>
-              {campaign.owner}
+            <div className="flex flex-row">
+              <h4>Owner:</h4>
+              {shortenAccount(campaign.owner)}
             </div>
-            <div>
-              <span className="bg-white/70 p-1 rounded-md mr-2">
-                Time Duration:
-              </span>
+            <div className="flex flex-row">
+              <h4>Time Duration:</h4>
               {ethers.formatUnits(campaign.durationTime)}
             </div>
-            <div>
-              <span className="bg-white/70 p-1 rounded-md mr-2">
-                Campaign Status:
-              </span>
+            <div className="flex flex-row">
+              <h4>Campaign Status:</h4>
               {campaign.isActive ? "Active" : "false"}
             </div>
-            <div>
-              <span className="bg-white/70 p-1 rounded-md mr-2">
-                Funding Balance:
-              </span>
+            <div className="flex flex-row">
+              <h4>Funding Balance:</h4>
               {ethers.formatEther(campaign.fundingBalance)}
             </div>
           </div>
