@@ -4,6 +4,6 @@
 
 @layer components {
   .headerStyle {
-    @apply text-lg text-blue-700 font-medium;
+    @apply text-lg text-blue-900 font-medium;
   }
 }
