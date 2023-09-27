@@ -26,7 +26,7 @@ const CreateCampaign = () => {
     e.preventDefault();
     const crowdfundContract = new ethers.Contract(
       contractAddress,
-      contractAddress,
+      contractABI,
       provider
     );
 
